@@ -14,3 +14,11 @@ To do so, he must make a fundamental and important separation: separating what c
 We will define the functionality of the server through an interface,
 and each project can have another class that will implement the same functionality in a different way.
 In that way, we kept the **Open / Close principle**.
+
+### Server
+
+We have ```Server``` interface that has quite simple functionality:
+* A method that receives a port for listening and its function will be to open the server and wait for clients.
+* A method to close the server.
+
+For this project we will use a class called ```MySerialServer``` that will be a type of ```Server```.
