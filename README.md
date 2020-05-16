@@ -80,4 +80,4 @@ If we'll set the start point to be 114 (0,0) and the end point to be 38 (3,3) th
 
 Right, Down, Right, Right, Down, Down.
 
-*(Marked in bold)*
+
