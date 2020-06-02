@@ -1,4 +1,4 @@
-# ServerClient_Java
+# Flight Simulator Control
 
 A project we are developing during the coming year in Advanced software development course.
 The project is written in Java about generic server-side that given a problem, he could solve it.
