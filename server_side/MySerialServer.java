@@ -8,50 +8,56 @@ import java.net.SocketTimeoutException;
 public class MySerialServer implements Server {
 	
 	private int port;
+	private ClientHandler c;
 	private volatile boolean stop;
-	public MySerialServer(int port)
-	{
-		this.port=port;
-		this.stop=false;
-	}
 	
+	
+	public MySerialServer() {
+		this.stop = false;
+	}
+
 	@Override
-	public void open(ClientHandler ch, String exitStr) throws Exception 
-	{
-		ServerSocket server=new ServerSocket(port);
-		server.setSoTimeout(1000);
-		while(!stop)
-		{
+	public void open(int port,ClientHandler c) {
+		this.port=port;
+		this.c=c;
+		new Thread(()->{
 			try {
-				Socket aClient=server.accept();
-				try {
-					// The communication with the Client happens here:
-					ch.handleClient(aClient.getInputStream(), aClient.getOutputStream(),exitStr);
-					aClient.getInputStream().close();
-					aClient.getOutputStream().close();
-					aClient.close();
-				}
-				catch (IOException e) {}
+				runServer();
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-			catch (SocketTimeoutException e) {}
-		}
-		server.close();
-	}
-	@Override
-	public void stop() 
-	{
-		stop=true;
-	}
-	@Override
-	public void start(ClientHandler ch, String exitStr) 
-	{
-		new Thread( ()->
-		{
-			try
-			{
-				open(ch,exitStr);
-			} catch (Exception e) {e.printStackTrace();}
 		}).start();
 	}
 
+	@Override
+	public void stop() {
+		stop=true;
+	}
+
+
+	private void runServer()throws Exception {
+		ServerSocket server=new ServerSocket(port);
+		System.out.println("Server is open. waiting for clients...");
+		server.setSoTimeout(300000000);
+		while(!stop){
+			try{
+				Socket aClient=server.accept(); // blocking call
+				System.out.println("Client connected to the server");
+				try {
+					c.handleClient(aClient.getInputStream(), aClient.getOutputStream());
+					//aClient.getInputStream().close();
+					//aClient.getOutputStream().close();
+					aClient.close();
+		} catch (IOException e) {
+			System.out.println("invalid input2-output");
+			e.printStackTrace();
+		}
+		}catch(SocketTimeoutException e) {
+			System.out.println("Time Out");
+			e.printStackTrace();
+		}
+		}
+		server.close();
+	}
+	
 }

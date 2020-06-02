@@ -5,51 +5,57 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.zip.InflaterInputStream;
 
-public class MyTestClientHandler <Problem,Solution> implements ClientHandler <Problem,Solution> {
+public class MyTestClientHandler<Problem,Solution> implements ClientHandler {
+
+	@SuppressWarnings("rawtypes")
 	private Solver solver;
+	@SuppressWarnings("rawtypes")
 	private CacheManager cm;
 	
-	
-	public MyTestClientHandler(Solver solver, CacheManager cm) {
-		this.solver = solver;
-		this.cm = cm;
+	public MyTestClientHandler(CacheManager cm ,Solver s) {
+		this.solver=s;
+		this.cm=cm;
 	}
+
 	
 	@Override
-	public void handleClient(InputStream in, OutputStream out, String exitStr) throws Exception
-	{
-		// Read from the user
-		BufferedReader userInput= new BufferedReader(new InputStreamReader(in));
-		// Write to the user
-		PrintWriter userOutput = new PrintWriter(out);
-		String line;
-		while(!(line=userInput.readLine()).equals(exitStr))
-		{
-			//Check if the problem is already solved and there is a cache
-			if(cm.isSolutionCached(line)==true)
+	public void handleClient(InputStream in, OutputStream out)  {
+		BufferedReader Bin=new BufferedReader(new InputStreamReader(in));
+		PrintWriter Bout=new PrintWriter(new OutputStreamWriter(out));
+		try {
+			Problem Line;
+			Solution Solved;
+			
+			while(!(Line=(Problem) Bin.readLine()).equals("end"))
 			{
-				userOutput.println(cm.getSolution(line));
 				
+				if(cm.Check(Line))
+				{
+					Solved=(Solution)cm.Extract(Line);
+				}
+				else {
+				//solver=String->new StringBuilder().reverse().toString();
+				
+				Solved=(Solution) solver.Solve(Line);
+				cm.Save(Line, Solved);
+				}
+				Bout.println(Solved);
+				Bout.flush();
+
 			}
-			else
-			{
-				// Get the solution
-				Solution s = (Solution) solver.solve(line);
-				
-				//saving the solution
-				cm.saveSolution(line, s);
-				
-				//Printing it to the user 
-				userOutput.println(s);
-			}
-			userOutput.flush();
-		}
+			
+		}catch (IOException e) {e.printStackTrace();}
 		
+		try {
+			Bin.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Bout.close();
 	}
 
 }
