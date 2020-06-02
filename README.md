@@ -65,7 +65,7 @@ Currently, only ```FileCacheManager``` is implemented.
 
 ## Running some examples and tests
 
-The specific problem and solution in the project I created is a server that given a matrix is able to solve it and say the cheapest path from point A to point B using **BestFirstSearch** algorithm.
+The specific problem and solution in the project I created is a server that given a matrix is able to solve it and say the cheapest path from point A to point B using **Astar** algorithm.
 
 For example: lets assume we have this matrix:
 
