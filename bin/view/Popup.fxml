@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="208.0" prefWidth="282.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FlightController">
+   <children>
+      <TextField fx:id="port" layoutX="81.0" layoutY="44.0" prefHeight="11.0" prefWidth="121.0" promptText="5402 | 2030" />
+      <Text layoutX="108.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Port" />
+      <Text layoutX="115.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter IP" />
+      <TextField fx:id="ip" layoutX="76.0" layoutY="120.0" prefHeight="31.0" prefWidth="131.0" promptText="127.0.0.1" />
+      <Button fx:id="submit" layoutX="109.0" layoutY="163.0" mnemonicParsing="false" onAction="#Submit" text="Submit" />
+   </children>
+</AnchorPane>
