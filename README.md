@@ -37,22 +37,19 @@ In the same way, if one day we would like to implement additional protocols then
 In this method, we maintained both the **Single Responsibility** and **Open / Close** principles.
 
 ## Caching
-This system has also caching system,
-it may take a lot of time to calculate some solutions.
-It would be superfluous to calculate a solution for a problem that we have already solved.
-Instead, we can save solutions we've already calculated in a file, or a database.
-If there is a problem, we will have to check quickly if we have already solved it.
+
+The project also has a caching system,
+for it might take a lot of time to calculate some solutions.
+It would be redundant to calculate a solution for a problem that we already solved.
+Instead, we can save solutions that were already calculated in an external file, or a database.
+Upon receiving a new problem, we will first check the cache to see if we have already solved it.
 If so, we will extract the solution from the disk instead of calculating it.
-At this point, we already understand that there may be several different implementations to save the solutions,
-for example in files or in a database. Therefore, we will again implement the same interface use tactic to preserve the various SOLID principles.
+
  
-
-We will deploy ```CacheManager``` interface to manage the cache for us. with the following functionality:
+We created the ```CacheManager``` interface to manage the cache for us, with the following functionalities:
 * Checks whether the solution already exists in the database.
-* Extracts the data from the database.
-* Saves the solution for the problem.
-
-Currently, only ```FileCacheManager``` is implemented.
+If a solution exists : * Extracts the data from the database.
+Else : * Saves the solution for the problem.
 
 ## UML
 
