@@ -214,3 +214,12 @@ the different components together.
 ```
 
 So this was our application with emphasis on many programming principles.
+
+## Built With
+
+* [Eclipse] (https://www.eclipse.org/downloads/packages/release/kepler/sr1/eclipse-ide-java-developers) - Java IDE
+* [Scene Builder] (https://gluonhq.com/products/scene-builder/)  - Scene Builder 8.5.0
+
+## Authors
+* **Or Levi** - [LinkedIn] (https://www.linkedin.com/in/orlevi13/)
+* **Eden Shtein** - [LinkedIn] (https://www.linkedin.com/in/edenshtein/)
