@@ -60,7 +60,7 @@ Currently, only ```FileCacheManager``` is implemented.
 
 ### Our Concerete Server
 Given a graph, it could solve it,
-Using [A-star](https://en.wikipedia.org/wiki/A*_search_algorithm) algorithm ( which is already implemented in this project ) or any other search algorithm.
+Using [A-star](https://en.wikipedia.org/wiki/A*_search_algorithm) algorithm ( which is already implemented in this project based on djkistra algorithm using manhattan distance ) or any other search algorithm.
 
 <p align="center">
   <img src="/uml/server_bridgepattern.png" width="600">
@@ -69,7 +69,7 @@ So in our concrete server, given a weighted graph, it will run the search algori
 
 In addition, we can see that we used the Bridge Design Pattern, we created a separation between the problem, and what solves the problem and so we can solve various problems through different solutions.
 
-The specific problem and solution in the project is that given a matrix is able to solve it and say the cheapest path from point A to point B using **BestFirstSearch** algorithm as said before.
+The specific problem and solution in the project is that given a matrix is able to solve it and say the cheapest path from point A to point B using **A-star** algorithm as said before.
 
 For example: lets assume we have this matrix:
 
