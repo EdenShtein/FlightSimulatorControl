@@ -147,3 +147,26 @@ Another reason to use the Pattern Pattern template and not simply to use functio
 So if, for example, we take a look at the loop command or if command, then we can see that each contains a list of commands which in turn can be either a standard command or another list of commands.
 
 ---
+### interpreter stages
+
+<p align="center">
+  <img src="/uml/interpreter.png" width="600">
+</p>
+
+So this script-reader works in a very similar way to the interpreter of a real programming language.
+
+And the first stage that happens in the interpretation process is Lexer
+
+That actually takes the string as it is, and converts it to logical distribution according to commands and parameters that can run later on with a Scanner.
+
+The next stage that is supposed to happen to is the parser stage, which actually begins to convert the "array" created by the Lexer into commands and to execute them.
+
+However, since this script is supposed to run an airplane, we don't want the interpreter to run the simulator, connect to the server and start running the code and in the middle of the script we will find that there are syntactic errors or incorrect entries.
+
+So, before we start running the commands, we will make sure that a pre-parser will pass the initial scan on the script and check for Syntax errors, such as incorrect parameters or irrational values.
+
+Since we are already running an initial scan to check the integrity of the code, we won't run again the same code and do exactly the same operation in the parser stage, so in the Pre-Parser phase, in addition to testing the program we will also maintain a list of commands.
+
+So in the parser phase, we can run on this list instead of running over each cell in the array and reinterpreting the different commands.
+
+---
