@@ -22,19 +22,17 @@ For this project we will use a class called ```MySerialServer``` that will be a 
 
 ### ClientHandler
 
-Imagine a situation in which the ```MySerialServer``` would also define the client-server call protocol.
-In different projects, there may be a different conversations in a different format and with different expectations between the client and the server.
-So we wouldn't be able to use this class in other projects.
+Imagine a situation in which the ```MySerialServer``` class would also define the client-server call protocol.
+In different projects, there might be different conversations in different formats and with different expectations between the client and the server.
+Therefore, we won't be able to use this class in other projects. 
 
-
-Therefore, we need to separate the server mechanism implemented in MySerialServer from different forms of conversation with the client.
-We will create an interface called ```ClientHandler``` to determine the type of call with the client and its handling,
-which leads to only two Server classes that should be done MySerialServer and MyParallelServer,
-and each class can inject any desired implementation for ```ClientHandler```.
+To solve that issue, we had to separate the server mechanism implemented in ```MySerialServer``` from different forms of conversation with possible clients.
+For that reason we created an interface called ```ClientHandler``` to determine the type of call with the client and its handling.
+Now ```MySerialServer``` class can inject any desired implementation for ```ClientHandler```.
 
 
 For example, for every implementation of a ```Server``` we can inject a call of inversion of strings or solving equations.
-In the same way if tomorrow we would like to implement additional protocols then we will only need to add the an implementation of ```ClientHandler``` without changing or copying again the code of the various implementations to the ```Server```.
+In the same way, if one day we would like to implement additional protocols then we will only need to add the implementation of ```ClientHandler``` without changing or copying again the code of the various implementations to the ```Server```.
 
 In this method, we maintained both the **Single Responsibility** and **Open / Close** principles.
 
