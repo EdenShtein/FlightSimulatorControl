@@ -84,6 +84,48 @@ If we'll set the start point to be 114 (0,0) and the end point to be 38 (3,3) th
 
 Right, Down, Right, Right, Down, Down.
 
-*(Marked in bold)*
+
 
 ---
+##   Interpreter 
+
+As stated at the beginning of the repository, the project is a GUI of a flight simulator by which you can control the plane and get information from it.
+
+And one of its features is running a script, basically a kind of programming language that can run and fly the plane.
+
+As in the following example:
+
+```scala
+openDataServer 5400 10
+connect 127.0.0.1 5402
+var breaks = bind "/controls/flight/speedbrake"
+var throttle = bind "/controls/engines/current-engine/throttle"
+var heading = bind "/instrumentation/heading-indicator/indicated-heading-deg"
+var roll = bind "/instrumentation/attitude-indicator/indicated-roll-deg"
+var pitch = bind "/instrumentation/attitude-indicator/internal-pitch-deg"
+var rudder = bind "/controls/flight/rudder"
+var aileron = bind "/controls/flight/aileron"
+var elevator = bind "/controls/flight/elevator"
+var alt = bind "/instrumentation/altimeter/indicated-altitude-ft"
+breaks = 0
+throttle = 1
+var h0 = heading
+sleep 5000
+while alt < 1000 {
+	rudder = (h0 - heading)/180
+	aileron = - roll / 70
+	elevator = pitch / 50
+	sleep 150
+}
+
+```
+For this purpose, we wrote a code reader, an interpreter, which allows you to connect to the simulator, open a server, and run various commands that control the plane and sample its data.
+For example:
+
+We see a while loop that will actually take place as long as the plane’s altitude is less than 1000 meters, and the loop content is the acceleration of the plane.
+And in this part:
+```scala
+rudder = (h0 - heading)/180
+```
+We can see that arithmetic expressions are supported as well, and to interpret them we use [Dijkstra's Shunting Yard algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm).
+
