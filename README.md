@@ -1,4 +1,4 @@
-# Flight Simulator Control
+# Flight Simulator Control 3
 
 A project we developed during the in the advanced software development course, which deals with java programming, with emphasis on design patterns and programming principles such as SOLID and GRASP.
 As well as object-oriented architectures and the development of JavaFX desktop application.
