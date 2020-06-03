@@ -10,7 +10,7 @@ This project helped us to gain a higher level of knowledge in programming, with 
 In this section we wrote a general server, which can be used over and over again in various projects.
 In order for the server to be re-usable, there must be a seperation between the server's functionality and the rest of the code. 
 
-Therefore, we defined the functionality of the server through an interface,
+Therefore, we defined the functionality of the server as an interface,
 and each project can have different classes that will implement the same functionality in different ways.
 Thus, the **Open / Close principle** has been applied.
 
@@ -20,7 +20,7 @@ Now the ```Server``` interface has a quite simple functionality:
 
 For this project we will use a class called ```MySerialServer``` that will be a type of ```Server```.
 
-### ClinetHandler
+### ClientHandler
 
 Imagine a situation in which the ```MySerialServer``` would also define the client-server call protocol.
 In different projects, there may be a different conversations in a different format and with different expectations between the client and the server.
