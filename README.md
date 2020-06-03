@@ -87,7 +87,7 @@ Right, Down, Right, Right, Down, Down.
 
 As stated at the beginning of the repository, the project is a GUI of a flight simulator by which you can control the plane and get information from it.
 
-And one of its features is running a script, basically a kind of programming language that can run and fly the plane.
+One of its features is running a script, which is basically a kind of custom programming language that can handle the plane.
 
 As in the following example:
 
@@ -116,10 +116,9 @@ while alt < 1000 {
 
 ```
 For this purpose, we wrote a code reader, an interpreter, which allows you to connect to the simulator, open a server, and run various commands that control the plane and sample its data.
-For example:
 
-We see a while loop that will actually take place as long as the plane’s altitude is less than 1000 meters, and the loop content is the acceleration of the plane.
-And in this part:
+In the text above, we see a while loop that will take place as long as the plane’s altitude is less than a 1000 meters, the loop content will give orders to the plane's acceleration and elevation.
+In this part:
 ```scala
 rudder = (h0 - heading)/180
 ```
