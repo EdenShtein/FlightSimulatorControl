@@ -222,5 +222,4 @@ So this was our application with emphasis on many programming principles.
 
 
 ## Authors
-* **Or Levi** - [LinkedIn](https://www.linkedin.com/in/orlevi13/)
-* **Eden Shtein** - [LinkedIn](https://www.linkedin.com/in/edenshtein/)
+* **Or Levi** - [LinkedIn](https://www.linkedin.com/in/orlevi13/) & **Eden Shtein** - [LinkedIn](https://www.linkedin.com/in/edenshtein/)
