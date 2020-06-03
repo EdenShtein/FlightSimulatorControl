@@ -48,8 +48,8 @@ If so, we will extract the solution from the disk instead of calculating it.
  
 We created the ```CacheManager``` interface to manage the cache for us, with the following functionalities:
 * Checks whether the solution already exists in the database.
-If a solution exists : * Extracts the data from the database.
-Else : * Saves the solution for the problem.
+* Extracts the data from the database (If a solution already exists).
+* Saves the solution for the problem.
 
 ## UML
 
