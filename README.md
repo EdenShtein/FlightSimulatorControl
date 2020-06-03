@@ -129,3 +129,21 @@ rudder = (h0 - heading)/180
 ```
 We can see that arithmetic expressions are supported as well, and to interpret them we use [Dijkstra's Shunting Yard algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm).
 
+---
+
+### Command Pattern
+
+<p align="center">
+  <img src="/uml/CommandPattern.png" width="600">
+</p>
+
+There is also extensive use of different commands, which use different design patterns:
+For example, the design pattern we use to implement the parser is Command Pattern - which means that each command in the program will receive a Command object.
+
+It is important that all commands will implement the same interface, because we want them to have a common polymorphic denominator.
+
+Another reason to use the Pattern Pattern template and not simply to use functions, is so we can do the assemblies, for example, a command that holds a lot of commandos, and we actually combined **Command Pattern** with **Composite Pattern**.
+
+So if, for example, we take a look at the loop command or if command, then we can see that each contains a list of commands which in turn can be either a standard command or another list of commands.
+
+---
