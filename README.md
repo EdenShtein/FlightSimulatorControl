@@ -1,12 +1,9 @@
 # Flight Simulator Control
 
-A project we are developing during the coming year in Advanced software development course.
-The project is written in Java about generic server-side that given a problem, he could solve it.
+A project we developed during the in the advanced software development course, which deals with java programming, with emphasis on design patterns and programming principles such as SOLID and GRASP.
+As well as object-oriented architectures and the development of JavaFX desktop application.
 
-## Introduction
-
-As said in the main description, this project is about a general server,
-in which the programmer can decide how and what the server will do given a general problem and how he should solve it.
+## Server
 
 We want to write a general server, a server that can be used again and again in various projects.
 To do so, he must make a fundamental and important separation: separating what changes between a project and a project, and what is not.
@@ -14,8 +11,6 @@ To do so, he must make a fundamental and important separation: separating what c
 We will define the functionality of the server through an interface,
 and each project can have another class that will implement the same functionality in a different way.
 In that way, we kept the **Open / Close principle**.
-
-### Server
 
 We have ```Server``` interface that has quite simple functionality:
 * A method that receives a port for listening and its function will be to open the server and wait for clients.
