@@ -56,17 +56,16 @@ We created the ```CacheManager``` interface to manage the cache for us, with the
 ![ServerClient Java UML](/project_uml.png "ServerClient Java UML")
 
 ### Our Concerete Server
-Given a graph, it could solve it,
-Using [A-star](https://en.wikipedia.org/wiki/A*_search_algorithm) algorithm ( which is already implemented in this project based on djkistra algorithm using manhattan distance ) or any other search algorithm.
+Given a graph, it could solve it using [A-star](https://en.wikipedia.org/wiki/A*_search_algorithm) algorithm ( which is already implemented in this project based on djkistra algorithm using manhattan distances ) or any other search algorithm.
 
 <p align="center">
   <img src="/uml/server_bridgepattern.png" width="600">
 </p>
-So in our concrete server, given a weighted graph, it will run the search algorithm, and as a output will return the cheapest route of the target.
+In our concrete server, given a weighted graph, it will run the search algorithm, and as an output it will return the cheapest route to the target.
 
-In addition, we can see that we used the Bridge Design Pattern, we created a separation between the problem, and what solves the problem and so we can solve various problems through different solutions.
+You can see that the Bridge Design Pattern was implemented, as we created a separation between the problem, and what solves the problem. That way we can solve various problems through different solutions.
 
-The specific problem and solution in the project is that given a matrix is able to solve it and say the cheapest path from point A to point B using **A-star** algorithm as said before.
+The specific problem and solution in this project, is that when given a matrix the server will be able to solve it and return the quickest path from point A to point B using **A-star** algorithm as said before.
 
 For example: lets assume we have this matrix:
 
@@ -212,8 +211,6 @@ the different components together.
             System.out.println("bye");
         });
 ```
-
-So this was our application with emphasis on many programming principles.
 
 ## Built With
 
