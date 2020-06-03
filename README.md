@@ -147,7 +147,7 @@ Another reason to use the Pattern Pattern template and not simply to use functio
 So if, for example, we take a look at the loop command or if command, then we can see that each contains a list of commands which in turn can be either a standard command or another list of commands.
 
 ---
-### interpreter stages
+### Interpreter stages
 
 <p align="center">
   <img src="/uml/interpreter.png" width="600">
@@ -170,3 +170,50 @@ Since we are already running an initial scan to check the integrity of the code,
 So in the parser phase, we can run on this list instead of running over each cell in the array and reinterpreting the different commands.
 
 ---
+## MVVM Architecture
+
+<p align="center">
+  <img src="/uml/mvvm.png" width="600">
+</p>
+
+So as we said, we chose to use the **MVVM architecture**.
+
+We have the View layer that is responsible for the presentation, for example the 
+input from the user, and he is also responsible for producing the graphic and also has the code-
+behind - for example, functions that are activated when we press a button. Which actually called
+event-oriented programming.
+
+* **Model** – Responsible for our business logic, such as algorithms and data access
+* **View Model** – It passes commands from the View to the Model, and its purpose is to
+separate the View from the Model.
+* **Data Binding** – We can wrap variables such as those in the View, and then when we change
+something in the text, it will automatically changed in the ViewModel.
+
+Actually, for all the MVVM architecture to work, we'll have to wrap the different components
+together. And this is done through the Observer Pattern, actually bind
+the different components together.
+
+```java
+   FXMLLoader loader = new FXMLLoader(getClass().getResource("Flight.fxml"));
+        Parent root = loader.load();
+        FlightController ctrl = loader.getController();
+        ViewModel viewModel=new ViewModel();
+        Model model=new Model();
+        model.addObserver(viewModel);
+        viewModel.setModel(model);
+        viewModel.addObserver(ctrl);
+        ctrl.setViewModel(viewModel);
+        primaryStage.setTitle("Flight Gear Simulator");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+        primaryStage.setOnCloseRequest(event -> {
+            DisconnectCommand command=new DisconnectCommand();
+            String[] disconnect={""};
+            command.executeCommand(disconnect);
+            AutoPilotParser.thread1.interrupt();
+            model.stopAll();
+            System.out.println("bye");
+        });
+```
+
+So this was our application with emphasis on many programming principles.
