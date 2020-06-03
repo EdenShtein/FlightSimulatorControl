@@ -1,8 +1,6 @@
 # Flight Simulator Control 
 
-<p align="center">
-  <img src="/uml/example.png" width="600">
-</p>
+[![Presentation Project](/uml/example.png)](https://youtu.be/rWe9220DOY8)
 
 A project we developed during the in the advanced software development course, which deals with java programming, with emphasis on design patterns and programming principles such as SOLID and GRASP.
 As well as object-oriented architectures and the development of JavaFX desktop application.
