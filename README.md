@@ -2,19 +2,19 @@
 
 [![Presentation Project](/uml/example.png)](https://youtu.be/rWe9220DOY8)
 
-A project we developed during the in the advanced software development course, which deals with java programming, with emphasis on design patterns and programming principles such as SOLID and GRASP.
-As well as object-oriented architectures and the development of JavaFX desktop application.
+This is a project we developed during our advanced software programming course in our 2nd year.
+This project helped us to gain a higher level of knowledge in programming, with emphasis on design patterns and programming principles such as SOLID and GRASP, and finally developing our own JavaFX desktop application.
 
 ## Server
 
-We want to write a general server, a server that can be used again and again in various projects.
-To do so, he must make a fundamental and important separation: separating what changes between a project and a project, and what is not.
+In this section we wrote a general server, which can be used over and over again in various projects.
+In order for the server to be re-usable, there must be a seperation between the server's functionality and the rest of the code. 
 
-We will define the functionality of the server through an interface,
-and each project can have another class that will implement the same functionality in a different way.
-In that way, we kept the **Open / Close principle**.
+Therefore, we defined the functionality of the server through an interface,
+and each project can have different classes that will implement the same functionality in different ways.
+Thus, the **Open / Close principle** has been applied.
 
-We have ```Server``` interface that has quite simple functionality:
+Now the ```Server``` interface has a quite simple functionality:
 * A method that receives a port for listening and its function will be to open the server and wait for clients.
 * A method to close the server.
 
