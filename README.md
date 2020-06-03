@@ -58,9 +58,18 @@ Currently, only ```FileCacheManager``` is implemented.
 
 ![ServerClient Java UML](/project_uml.png "ServerClient Java UML")
 
-## Running some examples and tests
+### Our Concerete Server
+Given a graph, it could solve it,
+Using [A-star](https://en.wikipedia.org/wiki/A*_search_algorithm) algorithm ( which is already implemented in this project ) or any other search algorithm.
 
-The specific problem and solution in the project I created is a server that given a matrix is able to solve it and say the cheapest path from point A to point B using **Astar** algorithm.
+<p align="center">
+  <img src="/uml/server_bridgepattern.png" width="600">
+</p>
+So in our concrete server, given a weighted graph, it will run the search algorithm, and as a output will return the cheapest route of the target.
+
+In addition, we can see that we used the Bridge Design Pattern, we created a separation between the problem, and what solves the problem and so we can solve various problems through different solutions.
+
+The specific problem and solution in the project is that given a matrix is able to solve it and say the cheapest path from point A to point B using **BestFirstSearch** algorithm as said before.
 
 For example: lets assume we have this matrix:
 
@@ -75,4 +84,6 @@ If we'll set the start point to be 114 (0,0) and the end point to be 38 (3,3) th
 
 Right, Down, Right, Right, Down, Down.
 
+*(Marked in bold)*
 
+---
