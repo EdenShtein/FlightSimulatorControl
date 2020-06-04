@@ -151,19 +151,15 @@ So if, for example, we take a look at the "loop" command or "if" command, then w
 
 So this script-reader works in a very similar way to the interpreter of a real programming language.
 
-And the first stage that happens in the interpretation process is Lexer
+The first stage that happens in the interpretation process is ``Lexer``.
 
-That actually takes the string as it is, and converts it to logical distribution according to commands and parameters that can run later on with a Scanner.
+The Lexer takes the string as it is, and converts it to a logical distribution according to commands and parameters that can run later on with a Scanner.
 
-The next stage that is supposed to happen to is the parser stage, which actually begins to convert the "array" created by the Lexer into commands and to execute them.
+The next stage is the ``parser`` stage, which begins converting the "array" created by the Lexer into commands and executes them.
 
-However, since this script is supposed to run an airplane, we don't want the interpreter to run the simulator, connect to the server and start running the code and in the middle of the script we will find that there are syntactic errors or incorrect entries.
+However, since the script is only supposed to control the plane, we don't want that the interpreter will have to deal with connecting to server and running the simulator, in case there are syntactic errors or incorrent entries that might be discovered in the middle of the script.
 
-So, before we start running the commands, we will make sure that a pre-parser will pass the initial scan on the script and check for Syntax errors, such as incorrect parameters or irrational values.
-
-Since we are already running an initial scan to check the integrity of the code, we won't run again the same code and do exactly the same operation in the parser stage, so in the Pre-Parser phase, in addition to testing the program we will also maintain a list of commands.
-
-So in the parser phase, we can run on this list instead of running over each cell in the array and reinterpreting the different commands.
+So, before we start running the commands, we will make sure that a ``Pre-Parser`` will pass the initial scan on the script and check for Syntax errors, such as incorrect parameters or irrational values.
 
 ---
 ## MVVM Architecture
@@ -172,22 +168,21 @@ So in the parser phase, we can run on this list instead of running over each cel
   <img src="/uml/mvvm.png" width="600">
 </p>
 
-So as we said, we chose to use the **MVVM architecture**.
+In this project we chose to use the **MVVM architecture**.
 
 We have the View layer that is responsible for the presentation, for example the 
-input from the user, and he is also responsible for producing the graphic and also has the code-
-behind - for example, functions that are activated when we press a button. Which actually called
+input from the user. The View is also responsible for producing the graphics and has the code-
+behind - for example, functions that are activated when we press a button, which are called
 event-oriented programming.
 
-* **Model** – Responsible for our business logic, such as algorithms and data access
+* **Model** – Responsible for our business logic, such as algorithms and data access.
 * **View Model** – It passes commands from the View to the Model, and its purpose is to
 separate the View from the Model.
 * **Data Binding** – We can wrap variables such as those in the View, and then when we change
 something in the text, it will automatically changed in the ViewModel.
 
-Actually, for all the MVVM architecture to work, we'll have to wrap the different components
-together. And this is done through the Observer Pattern, actually bind
-the different components together.
+For the MVVM architecture to work, we'll have to wrap the different components together. 
+This is done by the Observer Pattern, which binds the different components together, and notify them about changes that are made or needs to be made as required by the operator. 
 
 ```java
    FXMLLoader loader = new FXMLLoader(getClass().getResource("Flight.fxml"));
