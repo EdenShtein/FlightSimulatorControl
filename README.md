@@ -138,9 +138,9 @@ The Command Pattern implementation can be seen in our ```CompParser``` - each co
 
 It is important that all commands will implement the same interface, because we want them to have a common polymorphic denominator.
 
-Another reason to use the Pattern Pattern template and not simply to use functions, is so we can do the assemblies, for example, a command that holds a lot of commands, and we actually combined **Command Pattern** with **Composite Pattern**.
+Another reason to use the Command Pattern is for when we need an assembly of commands at once. For example, we needed a command that holds other different commands inside of it. In that case, we combined the **Command Pattern** with **Composite Pattern**.
 
-So if, for example, we take a look at the loop command or if command, then we can see that each contains a list of commands which in turn can be either a standard command or another list of commands.
+So if, for example, we take a look at the "loop" command or "if" command, then we can see that each contains a list of commands which in turn can be either a standard single command or a list of commands.
 
 ---
 ### Interpreter stages
