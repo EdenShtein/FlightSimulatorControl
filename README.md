@@ -132,12 +132,13 @@ We can see that arithmetic expressions are supported as well, and to interpret t
   <img src="/uml/CommandPattern.png" width="600">
 </p>
 
-There is also extensive use of different commands, which use different design patterns:
-For example, the design pattern we use to implement the parser is Command Pattern - which means that each command in the program will receive a Command object.
+In this project there is an extensive use of commands, the plane needs to receive a lot of instructions in a short period of time 
+in order to fly correctly. For that matter, the most suitable design pattern for the task is the Command Pattern. 
+The Command Pattern implementation can be seen in our ```CompParser``` - each command in the program is receiving its own Command Object.
 
 It is important that all commands will implement the same interface, because we want them to have a common polymorphic denominator.
 
-Another reason to use the Pattern Pattern template and not simply to use functions, is so we can do the assemblies, for example, a command that holds a lot of commandos, and we actually combined **Command Pattern** with **Composite Pattern**.
+Another reason to use the Pattern Pattern template and not simply to use functions, is so we can do the assemblies, for example, a command that holds a lot of commands, and we actually combined **Command Pattern** with **Composite Pattern**.
 
 So if, for example, we take a look at the loop command or if command, then we can see that each contains a list of commands which in turn can be either a standard command or another list of commands.
 
